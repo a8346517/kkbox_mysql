@@ -8,9 +8,13 @@ mydb = mysql.connector.connect(
   database = "kkbox"
 )
 mycursor = mydb.cursor(buffered=True)
+#創建資料庫
+mycursor.execute("CREATE DATABASE kkbox")
 mycursor.execute("SHOW DATABASES")
 for x in mycursor :
   print(x)
+# 創建表 
+mycursor.execute("CREATE TABLE charts(id VARCHAR(255), name VARCHAR(255), artist VARCHAR(255))")
 mycursor.execute("SHOW TABLES")
 for x in mycursor :
   print(x)
